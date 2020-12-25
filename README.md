@@ -8,35 +8,35 @@ OpenLANE: It is an automated RTL to GDSII flow based on several components inclu
 
 As you can see in above figure, this explains alot about working of openlane. It consists of several stages. By default all flow steps are run in sequence. Each stage may consist of multiple sub-stages.
 
-1)  **Synthesis** <br />
+**1)  Synthesis** <br />
   a) yosys - Performs RTL synthesis. <br />
   b) abc - Performs technology mapping. <br />
   c) OpenSTA - Pefroms static timing analysis on the resulting netlist to generate timing reports. <br />
 
-2)  **Floorplan and PDN** <br />
+**2)  Floorplan and PDN** <br />
   a)  init_fp - Defines the core area for the macro as well as the rows (used for placement) and the tracks (used for routing). <br />
   b)  ioplacer - Places the macro input and output ports. <br />
   c)  pdn - Generates the power distribution network. <br />
   d)  tapcell - Inserts welltap and decap cells in the floorplan. <br />
 
-3)  **Placement** <br />
+**3)  Placement** <br />
   a)  RePLace - Performs global placement. <br />
   b)  Resizer - Performs optional optimizations on the design. <br />
   c)  OpenPhySyn - Performs timing optimizations on the design. <br />
   d)  OpenDP - Perfroms detailed placement to legalize the globally placed components. <br />
 
-4)  **CTS** <br />
+**4)  CTS** <br />
   a)  TritonCTS - Synthesizes the clock distribution network (the clock tree). <br />
 
-5)  **Routing** <br />
+**5)  Routing** <br />
   a)  FastRoute - Performs global routing to generate a guide file for the detailed router. <br />
   b)  TritonRoute - Performs detailed routing. <br />
   c)  SPEF-Extractor - Performs SPEF extraction. <br />
 
-6)  **GDSII Generation** <br />
+**6)  GDSII Generation** <br />
   a)  Magic - Streams out the final GDSII layout file from the routed def. <br />
 
-7)  **Checks** <br />
+**7)  Checks** <br />
   a)  Magic - Performs DRC Checks & Antenna Checks. <br />
   b)  Netgen - Performs LVS Checks. <br />
 
